@@ -1,0 +1,302 @@
+/* ======================
+MENU BUTTON
+====================== */
+
+#menuBtn{
+
+width:48px;
+
+height:48px;
+
+border:none;
+
+border-radius:50%;
+
+background:transparent;
+
+color:white;
+
+font-size:28px;
+
+cursor:pointer;
+
+box-shadow:none;
+
+transition:.3s;
+
+flex-shrink:0;
+
+}
+
+
+#menuBtn:hover{
+
+background:rgba(255,255,255,.15);
+
+}
+
+
+/* Hide menu button when sidebar open */
+
+#menuBtn.hide{
+
+opacity:0;
+
+pointer-events:none;
+
+}
+
+
+
+/* ======================
+OVERLAY
+====================== */
+
+#overlay{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.35);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.3s;
+
+z-index:1098;
+
+}
+
+
+#overlay.show{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+
+
+/* ======================
+SIDEBAR
+====================== */
+
+#sidebar{
+
+position:fixed;
+
+top:0;
+
+left:-290px;
+
+width:270px;
+
+height:100vh;
+
+background:white;
+
+overflow-y:auto;
+
+transition:.3s;
+
+z-index:1099;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.18);
+
+border-top-right-radius:28px;
+
+border-bottom-right-radius:28px;
+
+}
+
+
+#sidebar.show{
+
+left:0;
+
+}
+
+
+
+/* ======================
+HEADER
+====================== */
+
+.sidebarHeader{
+
+background:#1565c0;
+
+color:white;
+
+padding:35px 20px;
+
+}
+
+
+.sidebarHeader h2{
+
+margin:0;
+
+font-size:24px;
+
+font-weight:600;
+
+}
+
+
+.sidebarHeader p{
+
+margin-top:8px;
+
+font-size:14px;
+
+opacity:.9;
+
+line-height:1.5;
+
+}
+
+
+
+/* ======================
+LINKS
+====================== */
+
+#sidebar a{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+padding:18px 24px;
+
+text-decoration:none;
+
+color:#333;
+
+font-size:17px;
+
+transition:.3s;
+
+border-bottom:1px solid #eee;
+
+}
+
+
+#sidebar a:hover{
+
+background:#f5f8ff;
+
+color:#1565c0;
+
+padding-left:32px;
+
+}
+
+
+
+/* ======================
+SCROLLBAR
+====================== */
+
+#sidebar::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+
+#sidebar::-webkit-scrollbar-thumb{
+
+background:#d0d0d0;
+
+border-radius:20px;
+
+}
+
+
+
+/* ======================
+MOBILE
+====================== */
+
+@media(max-width:768px){
+
+#sidebar{
+
+width:250px;
+
+left:-260px;
+
+}
+
+
+#sidebar.show{
+
+left:0;
+
+}
+
+
+.sidebarHeader{
+
+padding:30px 18px;
+
+}
+
+
+.sidebarHeader h2{
+
+font-size:22px;
+
+}
+
+
+.sidebarHeader p{
+
+font-size:13px;
+
+}
+
+
+#sidebar a{
+
+font-size:16px;
+
+padding:16px 22px;
+
+}
+
+}
+
+
+
+/* ======================
+PRINT
+====================== */
+
+@media print{
+
+#menuBtn,
+#sidebar,
+#overlay{
+
+display:none !important;
+
+}
+
+}

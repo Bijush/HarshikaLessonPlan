@@ -1,1 +1,355 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
+body{
+    background:#f3f4f8;
+    font-family:Arial,sans-serif;
+    color:#222;
+}
+
+/* ======================
+APP BAR
+====================== */
+
+.appBar{
+    position:sticky;
+    top:0;
+    height:65px;
+    padding:0 16px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:#1565c0;
+    color:white;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    z-index:1000;
+}
+
+.appTitle{
+    font-size:22px;
+    font-weight:500;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* ======================
+MAIN CONTAINER
+====================== */
+
+.container{
+    max-width:900px;
+    margin:10px auto;
+    padding:15px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+/* ======================
+TITLE
+====================== */
+
+h1{
+    text-align:center;
+    font-size:clamp(32px,8vw,60px);
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* ======================
+INPUTS
+====================== */
+
+input,
+select{
+    width:100%;
+    height:56px;
+    padding:0 18px;
+    margin:10px 0;
+    font-size:16px;
+    border:none;
+    outline:none;
+    background:#f7f7f7;
+    border-radius:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+input:focus,
+select:focus{
+    box-shadow:0 0 0 3px rgba(21,101,192,.15);
+}
+
+/* ======================
+BUTTONS
+====================== */
+
+button{
+    width:100%;
+    height:54px;
+    margin-top:12px;
+    border:none;
+    border-radius:20px;
+    background:#1565c0;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#0d47a1;
+    transform:translateY(-1px);
+}
+
+/* ======================
+OUTPUT
+====================== */
+
+#output{
+    margin-top:20px;
+    line-height:1.5;
+}
+
+#output > div{
+    background:white;
+    max-width:850px;
+    margin:auto;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+/* ======================
+HEADINGS
+====================== */
+
+#output h1{
+    margin:10px 0;
+}
+
+#output h2{
+    margin:12px 0 8px;
+}
+
+#output h3{
+    margin:10px 0 5px;
+    font-size:18px;
+    color:#0a5d8f;
+    text-decoration:underline;
+}
+
+#output h4{
+    margin:8px 0 4px;
+}
+
+/* ======================
+TEXT
+====================== */
+
+#output p{
+    margin:4px 0;
+}
+
+#output ul,
+#output ol{
+    margin-left:22px;
+    margin-bottom:8px;
+}
+
+#output li{
+    margin:2px 0;
+}
+
+hr{
+    margin:12px 0;
+    border:1px solid #ccc;
+}
+
+/* ======================
+MOBILE
+====================== */
+
+@media (max-width:768px){
+
+    .appBar{
+        height:60px;
+        padding:0 12px;
+    }
+
+    .appTitle{
+        font-size:18px;
+    }
+
+    .container{
+        margin:0;
+        padding:12px;
+        border-radius:15px;
+    }
+
+    h1{
+        font-size:30px;
+        margin-bottom:18px;
+    }
+
+    input,
+    select{
+        height:52px;
+        font-size:15px;
+        margin:8px 0;
+        border-radius:18px;
+    }
+
+    button{
+        height:52px;
+        font-size:17px;
+        border-radius:18px;
+    }
+
+    #output > div{
+        padding:15px;
+        border-radius:15px;
+    }
+}
+
+/* ======================
+PRINT / PDF
+====================== */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    body *{
+        visibility:hidden;
+    }
+
+    #output,
+    #output *{
+        visibility:visible;
+    }
+
+    #output{
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        margin:0;
+    }
+
+    #output > div{
+        width:100%;
+        max-width:100%;
+        margin:0;
+        padding:7mm;
+        border-radius:0;
+        box-shadow:none;
+        background:white;
+        font-size:11px;
+        line-height:1.25;
+    }
+
+    #output h2{
+        font-size:18px;
+        margin:0 0 6px;
+    }
+
+    #output h3{
+        font-size:13px;
+        margin:7px 0 3px;
+        color:#0a5d8f;
+        text-decoration:underline;
+    }
+
+    #output h4{
+        font-size:12px;
+        margin:4px 0 2px;
+    }
+
+    #output p{
+        font-size:11px;
+        margin:1px 0;
+        line-height:1.25;
+    }
+
+    #output ul,
+    #output ol{
+        margin-left:16px;
+        margin-bottom:3px;
+    }
+
+    #output li{
+        font-size:11px;
+        margin:0;
+        line-height:1.2;
+    }
+
+    hr{
+        border:1px solid black;
+        margin:5px 0;
+    }
+
+    @page{
+        size:A4;
+        margin:8mm;
+    }
+}
+
+/* ======================
+ABOUT POPUP
+====================== */
+
+#aboutModal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.45);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:3000;
+}
+
+.modalBox{
+    width:90%;
+    max-width:450px;
+    background:white;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+#closeAbout{
+    float:right;
+    font-size:22px;
+    cursor:pointer;
+}
+
+footer{
+    padding:20px;
+    text-align:center;
+    background:white;
+}
+
+.typing{
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+    font-size:16px;
+    color:#555;
+    animation:typing 10s steps(19,end) infinite;
+}
+
+@keyframes typing{
+    0%{width:0;}
+    50%{width:19ch;}
+    100%{width:0;}
+}
