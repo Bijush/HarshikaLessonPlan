@@ -106,6 +106,12 @@ button:hover{
     transform:translateY(-1px);
 }
 
+#downloadBtn{
+display:none;
+max-width:300px;
+margin:20px auto;
+}
+
 /* ======================
 OUTPUT
 ====================== */
