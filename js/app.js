@@ -119,6 +119,8 @@ updateChapterList();
 
 generateBtn.onclick = ()=>{
 
+downloadBtn.style.display =
+"none";
 
 const data = {
 
@@ -218,7 +220,12 @@ chapterData
 
 );
 
-
+document
+.getElementById(
+"downloadBtn"
+)
+.style.display =
+"block";
 
 // Scroll
 output.scrollIntoView({
