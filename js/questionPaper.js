@@ -8,10 +8,6 @@ import {
 import {
   buildMathQuestionPaper
 } from "../templates/mathQuestionPaperTemplate.js";
-import {
-downloadPdf
-}
-from "./pdfDownload.js";
 
 const output = document.getElementById("output");
 const generateBtn = document.getElementById("generateBtn");
