@@ -5,7 +5,7 @@ from "../database/questionPaper/class5/bengali/index.js";
 
 import {
 questionPapers as class5EnglishQuestionPapers
-} from "../database/questionPaper/class5/english/index.js";
+} from "../database/questionPaper/class5/English/index.js";
 
 import {
 questionPapers as class5MathQuestionPapers
