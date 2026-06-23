@@ -9,6 +9,7 @@ import {
   buildMathQuestionPaper
 } from "../templates/mathQuestionPaperTemplate.js";
 
+
 const output = document.getElementById("output");
 const generateBtn = document.getElementById("generateBtn");
 const downloadBtn = document.getElementById("downloadBtn");
@@ -142,9 +143,14 @@ downloadBtn.onclick = async () => {
 
         pagebreak: {
 
-          mode: [ "legacy"]
+  mode: ["css", "legacy"],
 
-        }
+  avoid: [
+    ".perimeterBlock",
+    ".clockBlock"
+  ]
+
+}
 
       })
 
