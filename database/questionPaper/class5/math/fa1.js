@@ -149,7 +149,7 @@ b:14
 {
 serial:"(iv)",
 type:"multiplication",
-a:57,
+a:5001,
 b:14
 }
 
@@ -170,7 +170,7 @@ questions:[
 
 "১০":{
 title:"পাশ ও কোণের সংখ্যা লিখ",
-marks:"১×৮=৮",
+marks:"২×৪=৮",
 questions:[
 
 {
