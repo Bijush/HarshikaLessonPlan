@@ -55,9 +55,6 @@
   margin:15px 10px 15px 0;
   padding:10px;
   border-radius:12px;
-
-  break-inside:avoid;
-  page-break-inside:avoid;
 }
 
 .mathPaper .verticalAddition{
@@ -143,19 +140,6 @@
 }
 
 /* ==========================
-   MULTIPLICATION BLOCK
-========================== */
-
-.multiplicationBlock{
-  display:inline-block;
-  vertical-align:top;
-  margin:15px 25px 15px 0;
-
-  break-inside:avoid;
-  page-break-inside:avoid;
-}
-
-/* ==========================
    PRINT
 ========================== */
 
@@ -173,9 +157,6 @@
     display:flex;
     flex-wrap:wrap;
     gap:10px;
-
-    break-inside:auto;
-    page-break-inside:auto;
   }
 
   .mathGrid > div{
@@ -183,23 +164,18 @@
     max-width:140px;
   }
 
-  /* Question block ভাঙবে না */
+  /* Question block ভাঙতে পারবে */
   .questionBlock{
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+
+  /* শুধুমাত্র shape block ভাঙবে না */
+  .perimeterBlock{
     break-inside:avoid;
     page-break-inside:avoid;
   }
 
-  /* Vertical operation block ভাঙবে না */
-  .verticalAddition,
-  .verticalSubtraction,
-  .multiplication,
-  .multiplicationBlock{
-    break-inside:avoid;
-    page-break-inside:avoid;
-  }
-
-  /* Shape block ভাঙবে না */
-  .perimeterBlock,
   .clockBlock{
     break-inside:avoid;
     page-break-inside:avoid;
