@@ -19,8 +19,6 @@
 
 .mathPaper .questionBlock{
   margin-bottom:15px;
-  break-inside:avoid !important;
-  page-break-inside:avoid !important;
 }
 
 /* ==========================
@@ -38,7 +36,6 @@
 
 .mathPaper .answerBox{
   display:inline-block;
-  
   height:18px;
   margin-left:6px;
   border:2px solid #7dd3fc;
@@ -59,8 +56,8 @@
   padding:10px;
   border-radius:12px;
 
-  break-inside:avoid !important;
-  page-break-inside:avoid !important;
+  break-inside:avoid;
+  page-break-inside:avoid;
 }
 
 .mathPaper .verticalAddition{
@@ -94,7 +91,7 @@
 }
 
 /* ==========================
-   GRID FOR MULTIPLE BOXES
+   GRID
 ========================== */
 
 .mathGrid{
@@ -108,9 +105,6 @@
   flex:1 1 140px;
   max-width:140px;
   min-width:0;
-
-  break-inside:avoid !important;
-  page-break-inside:avoid !important;
 }
 
 /* ==========================
@@ -119,8 +113,46 @@
 
 .mathPaper svg{
   max-width:100%;
-  break-inside:avoid !important;
-  page-break-inside:avoid !important;
+}
+
+/* ==========================
+   PERIMETER
+========================== */
+
+.perimeterBlock{
+  display:inline-block;
+  vertical-align:top;
+  margin:15px 40px 15px 0;
+
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+
+/* ==========================
+   CLOCK
+========================== */
+
+.clockBlock{
+  display:inline-block;
+  vertical-align:top;
+  width:160px;
+  margin:15px;
+
+  break-inside:avoid;
+  page-break-inside:avoid;
+}
+
+/* ==========================
+   MULTIPLICATION BLOCK
+========================== */
+
+.multiplicationBlock{
+  display:inline-block;
+  vertical-align:top;
+  margin:15px 25px 15px 0;
+
+  break-inside:avoid;
+  page-break-inside:avoid;
 }
 
 /* ==========================
@@ -137,15 +169,13 @@
     line-height:1.35;
   }
 
-  .mathPaper *{
-    break-inside:avoid !important;
-    page-break-inside:avoid !important;
-  }
-
   .mathGrid{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
+
+    break-inside:auto;
+    page-break-inside:auto;
   }
 
   .mathGrid > div{
@@ -153,8 +183,29 @@
     max-width:140px;
   }
 
+  /* Question block ভাঙবে না */
+  .questionBlock{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+
+  /* Vertical operation block ভাঙবে না */
+  .verticalAddition,
+  .verticalSubtraction,
+  .multiplication,
+  .multiplicationBlock{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+
+  /* Shape block ভাঙবে না */
+  .perimeterBlock,
+  .clockBlock{
+    break-inside:avoid;
+    page-break-inside:avoid;
+  }
+
   .mathPaper .answerBox{
-   
     height:18px;
   }
 
