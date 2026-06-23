@@ -8,7 +8,6 @@ buildTemplate
 }
 from "../templates/lessonPlanTemplate.js";
 
-
 const output =
 document.getElementById(
 "output"
@@ -41,6 +40,55 @@ document.getElementById(
 const downloadBtn =
 document.getElementById(
 "downloadBtn"
+);
+const schoolError =
+document.getElementById(
+"schoolError"
+);
+
+const teacherError =
+document.getElementById(
+"teacherError"
+);
+
+const classError =
+document.getElementById(
+"classError"
+);
+
+const subjectError =
+document.getElementById(
+"subjectError"
+);
+
+const chapterError =
+document.getElementById(
+"chapterError"
+);
+
+const schoolSuccess =
+document.getElementById(
+"schoolSuccess"
+);
+
+const teacherSuccess =
+document.getElementById(
+"teacherSuccess"
+);
+
+const classSuccess =
+document.getElementById(
+"classSuccess"
+);
+
+const subjectSuccess =
+document.getElementById(
+"subjectSuccess"
+);
+
+const chapterSuccess =
+document.getElementById(
+"chapterSuccess"
 );
 
 
@@ -98,18 +146,89 @@ ${name}
 
 }
 
-
-// Class / Subject change
-classSelect.onchange =
-updateChapterList;
-
-subjectSelect.onchange =
-updateChapterList;
-
-
 // First load
 updateChapterList();
+document
+.getElementById(
+"school"
+)
+.oninput = ()=>{
 
+schoolSuccess.style.display =
+document
+.getElementById(
+"school"
+)
+.value
+.trim()
+? "block"
+: "none";
+
+};
+
+
+document
+.getElementById(
+"teacher"
+)
+.oninput = ()=>{
+
+teacherSuccess.style.display =
+document
+.getElementById(
+"teacher"
+)
+.value
+.trim()
+? "block"
+: "none";
+
+};
+
+
+classSelect.onchange = ()=>{
+
+updateChapterList();
+
+classSuccess.style.display =
+
+classSelect.value !==
+"Select Class"
+
+? "block"
+
+: "none";
+
+};
+
+
+subjectSelect.onchange = ()=>{
+
+updateChapterList();
+
+subjectSuccess.style.display =
+
+subjectSelect.value !==
+"Select Subject"
+
+? "block"
+
+: "none";
+
+};
+
+
+chapterSelect.onchange = ()=>{
+
+chapterSuccess.style.display =
+
+chapterSelect.value
+
+? "block"
+
+: "none";
+
+};
 
 
 
@@ -121,6 +240,7 @@ generateBtn.onclick = ()=>{
 
 downloadBtn.style.display =
 "none";
+
 
 const data = {
 
@@ -158,24 +278,123 @@ document
 
 };
 
+// Clear previous messages
+
+schoolError.innerHTML = "";
+teacherError.innerHTML = "";
+classError.innerHTML = "";
+subjectError.innerHTML = "";
+chapterError.innerHTML = "";
 
 
-// Validation
+let valid = true;
+
+// School
+
+if(!data.school){
+
+schoolError.innerHTML =
+"School Name Required";
+
+valid = false;
+
+}
+
+else{
+
+schoolSuccess.style.display =
+"block";
+
+}
+
+// Teacher
+
+if(!data.teacher){
+
+teacherError.innerHTML =
+"Teacher Name Required";
+
+valid = false;
+
+}
+
+else{
+
+teacherSuccess.style.display =
+"block";
+
+}
+
+// Class
+
 if(
-!data.chapter
+data.className ===
+"Select Class"
 ){
 
-output.innerHTML =
+classError.innerHTML =
+"Class Required";
 
-"<h2>Please select a chapter.</h2>";
+valid = false;
+
+}
+
+else{
+
+classSuccess.style.display =
+"block";
+
+}
+
+// Subject
+
+if(
+data.subject ===
+"Select Subject"
+){
+
+subjectError.innerHTML =
+"Subject Required";
+
+valid = false;
+
+}
+
+else{
+
+subjectSuccess.style.display =
+"block";
+
+}
+
+// Chapter
+
+if(!data.chapter){
+
+chapterError.innerHTML =
+"Chapter Required";
+
+valid = false;
+
+}
+
+else{
+
+chapterSuccess.style.display =
+"block";
+
+}
+
+// Stop if invalid
+
+if(!valid){
 
 return;
 
 }
 
-
-
 // Database
+
 const lessons =
 
 getLessons(
@@ -186,14 +405,11 @@ data.subject
 
 );
 
-
 const chapterData =
 
 lessons[
 data.chapter
 ];
-
-
 
 if(
 !chapterData
@@ -207,9 +423,8 @@ return;
 
 }
 
+// Generate lesson plan
 
-
-// Generate
 output.innerHTML =
 
 buildTemplate(
@@ -220,14 +435,13 @@ chapterData
 
 );
 
-document
-.getElementById(
-"downloadBtn"
-)
-.style.display =
+// Show download button
+
+downloadBtn.style.display =
 "block";
 
 // Scroll
+
 output.scrollIntoView({
 
 behavior:"smooth"
@@ -235,6 +449,7 @@ behavior:"smooth"
 });
 
 };
+
 
 
 
@@ -264,35 +479,122 @@ window.print();
 
 };
 */
-downloadBtn.onclick = () => {
+downloadBtn.onclick = ()=>{
 
-  if (!output.innerHTML) {
-    alert("Generate lesson plan first.");
-    return;
-  }
+console.log("Lesson Download Clicked");
 
-  const lesson = output.querySelector("div");
+console.log(typeof html2pdf);
 
-  html2pdf()
-    .set({
-      margin: 8,
-      filename: `${chapterSelect.value}.pdf`,
-      image: {
-        type: "jpeg",
-        quality: 1
-      },
-      html2canvas: {
-        scale: 4,
-        scrollX: 0,
-        scrollY: 0
-      },
-      jsPDF: {
-        unit: "mm",
-        format: "a4",
-        orientation: "portrait"
-      }
-    })
-    .from(lesson)
-    .save();
+console.log(output);
+
+if(!output.innerHTML){
+
+alert(
+"Generate lesson plan first."
+);
+
+return;
+
+}
+
+const lesson = output.firstElementChild;
+
+console.log(lesson);
+
+if(!lesson){
+
+alert(
+"Lesson element not found."
+);
+
+return;
+
+}
+
+html2pdf()
+
+.set({
+
+margin:10,
+
+filename:
+
+`${chapterSelect.value}.pdf`,
+
+image:{
+
+type:"jpeg",
+
+quality:0.98
+
+},
+
+html2canvas:{
+
+scale:1,
+
+backgroundColor:"#ffffff",
+
+allowTaint:true,
+
+useCORS:true,
+
+scrollX:0,
+
+scrollY:0
+
+},
+
+jsPDF:{
+
+unit:"mm",
+
+format:"a4",
+
+orientation:"portrait"
+
+}
+
+})
+
+.from(
+
+lesson
+
+)
+
+.save()
+
+.then(()=>{
+
+console.log(
+
+"PDF Saved Successfully"
+
+);
+
+})
+
+.catch(
+
+err=>{
+
+console.error(
+
+"PDF Error:",
+
+err
+
+);
+
+alert(
+
+"PDF Download Failed"
+
+);
+
+}
+
+);
 
 };
