@@ -1,0 +1,166 @@
+/* ==========================
+   MATH PAPER
+========================== */
+
+.mathPaper{
+  max-width:850px;
+  margin:auto;
+  padding:12px;
+  background:#fff;
+  color:#000;
+  font-family:'Nirmala UI',sans-serif;
+  font-size:13px;
+  line-height:1.4;
+}
+
+/* ==========================
+   QUESTION BLOCK
+========================== */
+
+.mathPaper .questionBlock{
+  margin-bottom:15px;
+  break-inside:avoid !important;
+  page-break-inside:avoid !important;
+}
+
+/* ==========================
+   DEFAULT QUESTION
+========================== */
+
+.mathPaper .defaultQuestion{
+  margin:8px 0;
+  line-height:1.6;
+}
+
+/* ==========================
+   ANSWER BOX
+========================== */
+
+.mathPaper .answerBox{
+  display:inline-block;
+  
+  height:18px;
+  margin-left:6px;
+  border:2px solid #7dd3fc;
+  border-radius:6px;
+  background:#fff;
+  vertical-align:middle;
+}
+
+/* ==========================
+   VERTICAL OPERATIONS
+========================== */
+
+.mathPaper .verticalAddition,
+.mathPaper .verticalSubtraction,
+.mathPaper .multiplication{
+  display:inline-block;
+  margin:15px 10px 15px 0;
+  padding:10px;
+  border-radius:12px;
+
+  break-inside:avoid !important;
+  page-break-inside:avoid !important;
+}
+
+.mathPaper .verticalAddition{
+  border:2px solid #38bdf8;
+  background:#f0f9ff;
+}
+
+.mathPaper .verticalSubtraction{
+  border:2px solid #f472b6;
+  background:#fdf2f8;
+}
+
+.mathPaper .multiplication{
+  border:2px solid #34d399;
+  background:#ecfdf5;
+}
+
+.mathPaper .verticalContent{
+  text-align:right;
+  font-size:18px;
+  font-weight:bold;
+  line-height:1.7;
+  color:#000;
+  min-width:100px;
+}
+
+.mathPaper .answerLine{
+  border-top:2px solid #000;
+  margin-top:5px;
+  height:35px;
+}
+
+/* ==========================
+   GRID FOR MULTIPLE BOXES
+========================== */
+
+.mathGrid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:10px;
+}
+
+.mathGrid > div{
+  flex:1 1 140px;
+  max-width:140px;
+  min-width:0;
+
+  break-inside:avoid !important;
+  page-break-inside:avoid !important;
+}
+
+/* ==========================
+   SVG
+========================== */
+
+.mathPaper svg{
+  max-width:100%;
+  break-inside:avoid !important;
+  page-break-inside:avoid !important;
+}
+
+/* ==========================
+   PRINT
+========================== */
+
+@media print{
+
+  .mathPaper{
+    width:100%;
+    max-width:100%;
+    padding:3mm;
+    font-size:11px;
+    line-height:1.35;
+  }
+
+  .mathPaper *{
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+
+  .mathGrid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .mathGrid > div{
+    flex:1 1 140px;
+    max-width:140px;
+  }
+
+  .mathPaper .answerBox{
+   
+    height:18px;
+  }
+
+  @page{
+    size:A4 portrait;
+    margin:5mm;
+  }
+
+}

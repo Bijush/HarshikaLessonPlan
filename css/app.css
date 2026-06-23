@@ -5,7 +5,7 @@
 }
 
 body{
-    background:#f3f4f8;
+    background:#eef2f7;
     font-family:Arial,sans-serif;
     color:#222;
 }
@@ -46,7 +46,7 @@ MAIN CONTAINER
     padding:15px;
     background:white;
     border-radius:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
 /* ======================
@@ -117,17 +117,29 @@ OUTPUT
 ====================== */
 
 #output{
-    margin-top:20px;
-    line-height:1.5;
+
+margin-top:25px;
+
+line-height:1.6;
+
 }
 
 #output > div{
-    background:white;
-    max-width:850px;
-    margin:auto;
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+background:white;
+
+max-width:850px;
+
+margin:auto;
+
+padding:25px;
+
+border-radius:0;
+
+border:none;
+
+box-shadow:none;
+
 }
 
 /* ======================
@@ -143,14 +155,18 @@ HEADINGS
 }
 
 #output h3{
-    margin:10px 0 5px;
-    font-size:18px;
-    color:#0a5d8f;
-    text-decoration:underline;
+margin:18px 0 8px;
+font-size:18px;
+color:#1565c0;
+text-decoration:underline;
 }
 
 #output h4{
-    margin:8px 0 4px;
+
+margin:10px 0 5px;
+
+color:#333;
+
 }
 
 /* ======================
@@ -160,7 +176,10 @@ TEXT
 #output p{
     margin:4px 0;
 }
-
+#output p,
+#output li{
+    color:#333;
+}
 #output ul,
 #output ol{
     margin-left:22px;
@@ -168,12 +187,15 @@ TEXT
 }
 
 #output li{
-    margin:2px 0;
+
+margin:4px 0;
+
 }
 
 hr{
-    margin:12px 0;
-    border:1px solid #ccc;
+margin:12px 0;
+border:1px solid #ccc;
+background:none;
 }
 
 /* ======================
@@ -358,4 +380,70 @@ footer{
     0%{width:0;}
     50%{width:19ch;}
     100%{width:0;}
+}
+.errorMsg{
+
+color:red;
+
+font-size:13px;
+
+margin-top:-5px;
+
+margin-bottom:8px;
+
+padding-left:15px;
+
+}
+.fieldBox{
+
+position:relative;
+
+}
+
+.successIcon{
+
+display:none;
+
+position:absolute;
+
+right:18px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+width:26px;
+
+height:26px;
+
+line-height:26px;
+
+border-radius:50%;
+
+background:#4caf50;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+text-align:center;
+
+}
+
+.errorMsg{
+
+color:#d32f2f;
+
+font-size:13px;
+
+padding-left:15px;
+
+margin-top:-5px;
+
+margin-bottom:8px;
+
+font-weight:500;
+
 }
