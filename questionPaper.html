@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>
+Question Paper Generator
+</title>
+
+<link
+rel="stylesheet"
+href="./css/questionPaper.css">
+<link rel="stylesheet" href="./css/mathQuestionPaper.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="topBar">
+
+<a
+href="../index.html"
+class="backBtn">
+
+&#8592;
+
+</a>
+
+</div>
+<h1>
+
+Question Paper Generator
+
+</h1>
+
+<select id="className">
+
+<option value="">
+Select Class
+</option>
+
+<option value="V">
+V
+</option>
+
+</select>
+
+<select id="subject">
+
+<option value="">
+Select Subject
+</option>
+
+<option value="Bengali">
+Bengali
+</option>
+<option value="English">
+English
+</option>
+<option value="Mathematics">
+Mathematics
+</option>
+</select>
+
+<select id="examType">
+
+<option value="">
+Select Exam
+</option>
+
+<option value="FA1">
+FA1
+</option>
+
+</select>
+
+<button id="generateBtn">
+
+Generate Question Paper
+
+</button>
+
+<div id="output">
+
+</div>
+
+<button
+id="downloadBtn"
+style="display:none">
+
+DOWNLOAD PDF
+
+</button>
+
+</div>
+
+<script
+type="module"
+src="./js/questionPaper.js">
+
+</script>
+
+</body>
+</html>
