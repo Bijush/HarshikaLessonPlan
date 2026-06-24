@@ -63,6 +63,7 @@ else {
 // ======================
 // DOWNLOAD PDF
 // ======================
+/*
 downloadBtn.onclick = async () => {
 
   if (!output.innerHTML) {
@@ -177,3 +178,14 @@ downloadBtn.onclick = async () => {
 
 };
 
+*/
+downloadBtn.onclick = () => {
+
+  if (!output.innerHTML) {
+    alert("Generate question paper first.");
+    return;
+  }
+
+  window.print();
+
+};
