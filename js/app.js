@@ -457,8 +457,8 @@ behavior:"smooth"
 // ======================
 // PRINT / PDF
 // ======================
-/*
-printBtn.onclick = ()=>{
+
+downloadBtn.onclick = ()=>{
 
 if(
 !output.innerHTML
@@ -478,7 +478,8 @@ return;
 window.print();
 
 };
-*/
+
+/*
 downloadBtn.onclick = ()=>{
 
 console.log("Lesson Download Clicked");
@@ -531,7 +532,7 @@ quality:0.98
 
 html2canvas:{
 
-scale:1,
+scale:3,
 
 backgroundColor:"#ffffff",
 
@@ -598,3 +599,4 @@ alert(
 );
 
 };
+*/
