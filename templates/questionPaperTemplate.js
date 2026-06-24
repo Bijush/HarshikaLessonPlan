@@ -116,15 +116,20 @@ ${Object.entries(paper)
 class="questionBlock"
 style="
 margin-top:8px;
+break-inside:avoid-page;
+page-break-inside:avoid;
 "
 >
 
 <table
+class="matchTable"
 width="100%"
 style="
+margin-top:5px;
 border-collapse:collapse;
+font-size:12px;
+break-inside:avoid-page;
 page-break-inside:avoid;
-break-inside:avoid;
 "
 >
 
@@ -164,6 +169,94 @@ ${q.marks}
 
 </table>
 
+${q.type === "match"
+? `
+
+<table
+width="100%"
+style="
+margin-top:5px;
+border-collapse:collapse;
+font-size:12px;
+"
+>
+
+<tr>
+
+<td
+style="
+width:52%;
+vertical-align:top;
+padding:6px;
+background:#fdf2f8;
+border:1px solid #f9a8d4;
+"
+>
+
+<b>Column A</b>
+
+${(q.left || [])
+.map(item=>`
+
+<div
+style="
+margin-top:8px;
+line-height:1.5;
+font-weight:normal;
+"
+>
+
+${item}
+
+</div>
+
+`)
+.join("")}
+
+</td>
+
+<td
+style="
+width:48%;
+vertical-align:top;
+padding:6px;
+background:#eff6ff;
+border:1px solid #93c5fd;
+"
+>
+
+<b>Column B</b>
+
+${(q.right || [])
+.map(item=>`
+
+<div
+style="
+margin-top:8px;
+line-height:1.5;
+font-weight:normal;
+"
+>
+
+${item}
+
+</div>
+
+`)
+.join("")}
+
+</td>
+
+</tr>
+
+</table>
+
+`
+
+:
+
+`
+
 <div
 style="
 margin-left:18px;
@@ -172,15 +265,13 @@ margin-top:2px;
 >
 
 ${(q.questions || [])
-.map(item => `
+.map(item=>`
 
 <div
 style="
 line-height:1.3;
 margin:2px 0;
 font-weight:normal;
-page-break-inside:auto;
-break-inside:auto;
 "
 >
 
@@ -192,6 +283,9 @@ ${item}
 .join("")}
 
 </div>
+
+`
+}
 
 </div>
 
