@@ -238,10 +238,17 @@ hr{
    PRINT / PDF
 ====================== */
 
+/*
+/* ======================
+   PRINT / PDF
+====================== */
+
 @media print{
 
   body{
-    background:#fff;
+    background:#fff !important;
+    margin:0;
+    padding:0;
   }
 
   body *{
@@ -272,6 +279,7 @@ hr{
     box-shadow:none;
     font-size:10px;
     line-height:1.35;
+    color:#000;
   }
 
   #output h2{
@@ -285,10 +293,45 @@ hr{
     height:18px !important;
   }
 
+  /* Prevent question splitting */
+
+  .questionBlock{
+    break-inside:avoid-page !important;
+    page-break-inside:avoid !important;
+  }
+
+  .questionBody{
+    break-inside:avoid-page !important;
+    page-break-inside:avoid !important;
+  }
+
+  .matchBlock{
+    break-inside:avoid-page !important;
+    page-break-inside:avoid !important;
+  }
+
+  .perimeterBlock,
+  .clockBlock{
+    break-inside:avoid-page !important;
+    page-break-inside:avoid !important;
+  }
+
   table,
-  img{
-    break-inside:avoid;
-    page-break-inside:avoid;
+  img,
+  svg{
+    break-inside:avoid-page !important;
+    page-break-inside:avoid !important;
+  }
+
+  tr,
+  td{
+    break-inside:avoid-page !important;
+    page-break-inside:avoid !important;
+  }
+
+  hr{
+    border:none;
+    border-top:1px solid #000;
   }
 
   @page{
@@ -297,3 +340,4 @@ hr{
   }
 
 }
+*/
