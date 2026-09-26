@@ -1,6 +1,6 @@
 import {FA1} from "./fa1.js";
 //import {FA2} from "./fa2.js";
-import {SA1} from "./SA.js";
+import {SA1} from "./SA1.js";
 
 export const questionPapers = {
 
